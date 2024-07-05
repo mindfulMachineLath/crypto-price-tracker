@@ -1,5 +1,6 @@
 import app from "./app";
 import config from "./config/config";
+import priceService from "./service/priceService";
 
 const port = config.port;
 
@@ -11,6 +12,7 @@ const startServer = (): void => {
 
 const main = (): void => {
   try {
+    priceService.run();
     startServer();
   } catch (error) {
     console.error("Failed to start the application:", error);
