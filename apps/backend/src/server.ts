@@ -1,12 +1,21 @@
-import express from 'express';
+import app from "./app";
+import config from "./config/config";
 
-const app = express();
-const port = 3000;
+const port = config.port;
 
-app.get('/', (req, res) => {
-  res.send('Hello, Backend!');
-});
+const startServer = (): void => {
+  app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+  });
+};
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+const main = (): void => {
+  try {
+    startServer();
+  } catch (error) {
+    console.error("Failed to start the application:", error);
+    process.exit(1);
+  }
+};
+
+main();
