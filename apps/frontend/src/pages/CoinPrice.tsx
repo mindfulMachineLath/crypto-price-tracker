@@ -68,13 +68,13 @@ function CoinPrice() {
         <div>
           Current Price:{" "}
           <span className="text-green-400">
-            {(data?.latest.eur || 0).toFixed(2)} €
+            {(data?.latest.eur || 0).toFixed(coinId === 'dogecoin' ? 5 : 2)} €
           </span>
         </div>
         <div>
           Average Price:{" "}
           <span className="text-green-400">
-            {(data?.average.eur || 0).toFixed(2)} €
+            {(data?.average.eur || 0).toFixed(coinId === 'dogecoin' ? 5 : 2)} €
           </span>
         </div>
       </div>
