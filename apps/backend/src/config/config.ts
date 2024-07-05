@@ -6,6 +6,7 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 const config = {
   port: process.env.PORT || 3000,
   origin: process.env.CORS_ORIGIN,
+  defaultMinutes: process.env.DEFAULT_MINUTES,
   coingecko: {
     url: process.env.COIN_GECKO_API_URL,
     apiKey: process.env.COIN_GECKO_API_KEY,
