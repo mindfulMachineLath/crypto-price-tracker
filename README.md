@@ -2,6 +2,9 @@
 
 This project is a web application that tracks the prices of the cryptocurrencies Bitcoin (BTC), Ethereum (ETH), and Dogecoin (DOGE). It consists of a backend built with Node.js and TypeScript, and a frontend built with React and TypeScript. The project fetches the latest prices from the Coingecko API every 60 seconds and stores the price history in-memory. The frontend displays the latest and average prices and provides a historical view of the price data.
 
+## How it looks
+
+![alt text](image.png)
 
 ## Features
 
