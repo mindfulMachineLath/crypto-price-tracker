@@ -8,15 +8,16 @@ function CoinPrice() {
   const { coinId } = useParams<{ coinId: string }>();
   const [searchParams] = useSearchParams();
   const defaultMinutes = import.meta.env.VITE_DEFAULT_MINUTES || "60";
-  const minutes = searchParams.get("minutes");
-  const [minuteVal, setMinuteVal] = useState(minutes || defaultMinutes);
+  const minutesParam = searchParams.get("minutes");
+  const [minuteVal, setMinuteVal] = useState(minutesParam || defaultMinutes);
   const [seriesData, setSeriesData] = useState<ApexAxisChartSeries>([]);
+  const [minutes, setMinutes] = useState(minutesParam || defaultMinutes);
 
   const { data, error, isLoading } = usePriceQuery(
     coinId as CoinId,
     minutes ? Number(minutes) : undefined
   );
-
+  
   useEffect(() => {
     if (data) {
       const formattedSeriesData = data.history.map((price) => [
@@ -36,7 +37,7 @@ function CoinPrice() {
     return (
       Date.now() - (minutes ? Number(minutes) * 60 * 1000 : defaultMinutes * 60 * 1000)
     );
-  }, [data, minutes]);
+  }, [data, defaultMinutes, minutes]);
 
   const handleMinutesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMinuteVal(e.target.value);
@@ -45,9 +46,12 @@ function CoinPrice() {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading price data</div>;
 
+  const handleSubmit = () => {
+    setMinutes(Number(minuteVal));
+  }
   return (
     <div className="mt-10">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="flex gap-5 justify-center items-center">
           <label htmlFor="minutes">Minutes:</label>
           <input

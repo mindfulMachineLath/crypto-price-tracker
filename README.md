@@ -4,7 +4,7 @@ This project is a web application that tracks the prices of the cryptocurrencies
 
 ## How it looks
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 ## Features
 
