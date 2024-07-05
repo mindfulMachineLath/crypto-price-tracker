@@ -72,7 +72,15 @@ VITE_DEFAULT_MINUTES=60
 
 ```sh
 cd apps/backend
-pnpm start
+pnpm run dev
+```
+
+### Start Frontend and Backend.
+
+Run both of the Frontend and Backend at the same time with the following command at the root directory:
+
+```sh
+pnpm run dev
 ```
 
 ## Useage
