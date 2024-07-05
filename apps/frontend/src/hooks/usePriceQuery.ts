@@ -8,7 +8,10 @@ interface PriceData {
   history: ({ [key in CoinId]: { eur: number } } & { timestamp: number })[];
 }
 
-const fetchPriceData = async (coinId: CoinId, minutes?: number): Promise<PriceData> => {
+const fetchPriceData = async (
+  coinId: CoinId,
+  minutes?: number
+): Promise<PriceData> => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const response = await fetch(
     `${backendUrl}/price/${coinId}?minutes=${minutes}`

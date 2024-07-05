@@ -11,7 +11,7 @@ class PriceService {
     "x-cg-demo-api-key": this.COINGECKO_API_KEY!,
   };
 
-  constructor(private fetchInterval: number = 3000) {
+  constructor(private fetchInterval: number = 60000) {
     this.validateConfig();
   }
 
